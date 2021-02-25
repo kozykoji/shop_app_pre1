@@ -1,0 +1,9 @@
+<div>
+    <table class="table table-bordered">
+        {% for list in object_list %}
+        <tr class="table-secondary"></tr>
+        <td class="striker"><a href="{% url 'list_detail' list.pk %}">{{ list.shopname }}</a>
+        </td>
+    {% endfor %}
+    </table>
+</div>

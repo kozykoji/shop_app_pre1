@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+<!doctype html>
+{% block title %}Add Shop {% endblock %}
+{% block header %}
+
+{% endblock header %}
+<head>
+    <link rel="stylesheet"  href="{% static 'button.css' %}">
+</head>
+
+{% block content %}
+<div class="container" style="padding:20px 0" >
+    <form method="post"　enctype="multipart/form-data" action="" >
+        <div class="form-group text-left" style="padding:20px 0" >
+            <p style="text-align:right"><a class="btn btn-outline-info btn-sm " href="{% url 'add_brand' %}">取扱ブランドを追加する</a></p>
+            {% csrf_token %}
+            {{ form }}
+        </div>
+        <button class="btn btn-success offset-md-8 col-md-3" type="submit" name="submit">追加</button> 
+    </form>
+</div>
+
+    
+{% endblock %} 

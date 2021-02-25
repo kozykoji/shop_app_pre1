@@ -1,0 +1,16 @@
+<div class="card">
+    <div class="card-header">
+      取扱ブランド
+    </div>
+    <ul class="list-group list-group-flush">
+      {% for brand in treatbrands|dictsortreversed:"num_posts"|slice:":15" %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="{% url 'brand_post' brand.slug %}" class="card-link">{{ brand.brandname }}</a>
+        <span class="badge badge-primary badge-pill">{{ brand.num_posts }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    <div class="card-body text-center">
+      <a href="{% url 'brand_list' %}" class="card-link">すべてのタグを見る</a>
+    </div>
+</div>

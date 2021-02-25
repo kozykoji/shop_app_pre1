@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Shop detail{% endblock %} 
+{% block header %}
+<link rel='stylesheet' type="text/css" href="{% static 'style.css' %}">
+{% endblock header %}
+
+{% block content %}
+<div class="container">
+    <div class="card" >
+        <div class="card-header">
+            <h2 style="display:inline">{{object.shopname}}</h2>
+            <input id="copy1" type="hidden" value="{{object.shopname}}" readonly>
+            <button type="button" class="btn " onclick="CopyToClipboard(1)" data-toggle="tooltip" data-placement="top" title="コピーする">
+                <i class="fas fa-clipboard my-small"></i>
+            </button>       
+        </div>
+          <div class="card-body">
+            <div>
+                <div>
+                    <input id="copy2" type="hidden" value="{{object.treatbrands.all}}" readonly>
+                  <button type="button" class="btn" onclick="CopyToClipboard(2)" data-toggle="tooltip" data-placement="top" title="コピーする">
+                    <i class="fas fa-clipboard my-small"></i>
+                  </button>                    
+                </div>
+                <h4 style="display:inline" class="card-title">取扱ブランド</h4>
+                    {% for treatbrand in object.treatbrands.all %}
+                    <li type="disc">
+                        <h5 style="display:inline">{{treatbrand.brandname}}</h5>
+                    </li>
+                    {% endfor %}
+            </div>
+
+            <div>
+                <h4 class="card-title">ジャンル</h4>
+                <li>
+                    <h5 style="display:inline">{{object.genre}}</h5>
+                </li>
+            </div>
+            
+            <div>
+                <h4 class="card-title">古着の取扱</h4>
+                <li>
+                    <h5 style="display:inline">{{object.treatused}}</h5>
+                </li>
+            </div>
+
+            <div>
+                <input id="copy3" type="hidden" value="{{object.address}}" readonly>
+                <button type="button" class="btn" onclick="CopyToClipboard(3)" data-toggle="tooltip" data-placement="top" title="コピーする">
+                    <i class="fas fa-clipboard my-small"></i>
+                </button>
+                <h4 class="card-title">住所</h4>
+                <li type="disc">
+                    <h5 style="display:inline">{{object.address}}</h5>
+                </li>        
+            </div>
+
+            <div>
+                <div>
+                    <input id="copy4" type="hidden" value="{{object.hpurl}}" readonly>
+                    <button type="button" class="btn" onclick="CopyToClipboard(4)" data-toggle="tooltip" data-placement="top" title="コピーする">
+                        <i class="fas fa-clipboard my-small"></i>
+                    </button>
+                </div>
+                <h4 class="card-title">ホームページURL</h4>
+                <li type="disc">
+                        <a href="{{object.hpurl}}">{{object.hpurl}}
+                        </a>
+                </li>  
+            </div>
+            <p class="card-title">更新日:{{object.created_at|date}}</p>
+            {% include "clipboard.html" %}
+            <input class="btn btn-primary" value="戻る" onClick="javascript:history.go(-1);">
+        </div>
+    </div>
+</div>
+{% endblock content %} 

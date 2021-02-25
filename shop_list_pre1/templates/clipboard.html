@@ -1,0 +1,14 @@
+<script>
+    function CopyToClipboard(index) {
+        // コピー対象をJavaScript上で変数として定義する
+        var copyTarget = document.getElementById('copy'+ index);
+        // コピー対象のテキストを選択する
+        copyTarget.select();
+
+        // 選択しているテキストをクリップボードにコピーする
+        document.execCommand("Copy");
+
+        // コピーをお知らせする
+        alert("コピーしました！ : " + copyTarget.value);
+        }
+</script>

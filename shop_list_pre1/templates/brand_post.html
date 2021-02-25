@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+  Brand List
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    <h3>「{{ brand.brandname }}」を取り扱うショップ一覧</h3>
+    <table class="table table-bordered">
+        {% for list in object_list %}
+        <tr class="table-secondary"></tr>
+        <td class="striker"><a href="{% url 'list_detail' list.pk %}">{{ list.shopname }}</a>
+        </td>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

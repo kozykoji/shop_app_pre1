@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Shop Search{% endblock %} 
+{% block content %}
+<div class="col-lg-6 offset-lg-3">
+     <h1>検索条件</h1>
+    <div class="container" style="padding:20px 0">
+    <form method="POST" enctype="multipart/form-data" action="">
+        {% csrf_token %}
+        {{test_form}}
+        <div class="form-group text-right" style="padding:10px 0">
+            <input class="btn btn-success offset-md-8 col-md-3" type="submit" id="button" name="button" value="検索">
+        </div>
+    </form>
+    </div>
+    <h1>検索結果</h1>
+    <section class="post-list">
+        {% if object_list|length == 0 %}
+            <p>検索結果が存在しません。</p>
+        {% else %}
+            <table class="table table-hover table-bordered">
+                <tr>
+                    <th>店名</th>
+                </tr>
+                <tbody>
+                {% for post in object_list %}
+                    <tr>
+                        <td class="striker"><a href="{% url 'list_detail' post.pk %}">{{ post.shopname }}</a>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </section>
+    <div class="col-6 offset-3 justify-content-center">
+        {% if is_paginated %}
+            {% include 'pagination.html' %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
