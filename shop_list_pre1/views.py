@@ -7,19 +7,11 @@ from django.views.generic.edit import CreateView
 from shop_list_pre1.models import List, Brand
 from django.views import generic
 from .forms import SearchForm, ListForm, BrandForm
-import pyperclip
 
 # Create your views here.
 class ListDetailView(DetailView):
     model = List
     template_name = 'list_detail.html'
-    def copy(self, **kwargs):
-        pk = self.kwargs.get('pk')
-        copylist=self.object.value_list(pk=pk)
-        print(copylist)
-        pyperclip.copy(copylist)
-        return copylist
-
 
 
 class IndexView(ListView):
