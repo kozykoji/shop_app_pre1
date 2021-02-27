@@ -1,0 +1,22 @@
+h2{
+  color: lightcoral;
+}
+h4{
+  padding-bottom: 0px;
+  color: lightskyblue;
+}
+button{
+  float: right;
+  padding: 0%;
+}
+button .my-small {
+  font-size: 0.8em 
+}
+li{
+  padding-top: 0px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+li a{
+  font-size: 130%;
+}
