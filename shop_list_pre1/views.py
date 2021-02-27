@@ -13,7 +13,6 @@ class ListDetailView(DetailView):
     model = List
     template_name = 'list_detail.html'
 
-
 class IndexView(ListView):
     model = List
     template_name = 'index.html'

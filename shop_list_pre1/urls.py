@@ -8,6 +8,8 @@ from shop_list_pre1.views import (
     SearchView,
 )
 
+
+
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     path('list/<int:pk>/', ListDetailView.as_view(), name='list_detail'),
